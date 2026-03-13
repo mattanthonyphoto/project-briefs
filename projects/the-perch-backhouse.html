@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perch Backhouse - Project Brief</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ef;
+            --ink: #1a1a18;
+            --muted: #6b6b69;
+            --subtle: #9a9a97;
+            --gold: #c9a96e;
+            --gold-dark: #a88a4e;
+            --gold-light: rgba(201,169,110,0.15);
+            --gold-border: rgba(201,169,110,0.25);
+            --rule: rgba(26,26,24,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        ::selection {
+            background: var(--gold-light);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .brief-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 48px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .overline {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .overline::before {
+            content: '•';
+            margin: 0 12px;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .meta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .meta::before {
+            content: '•';
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 48px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .prose {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .prose p + p {
+            margin-top: 16px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--gold-dark);
+            background: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 2px;
+        }
+
+        .clean-list {
+            list-style: none;
+            max-width: 640px;
+        }
+
+        .clean-list li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .clean-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .callout {
+            border-left: 2px solid var(--gold);
+            background: var(--gold-light);
+            padding: 20px 24px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 24px;
+        }
+
+        .callout p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .contact-value a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-light);
+            transition: all 0.2s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--ink);
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-top: 1px solid var(--rule);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-location {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            color: var(--subtle);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 36px 0;
+            }
+
+            .project-title {
+                font-size: 34px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact {
+                gap: 24px;
+            }
+        }
+
+        @media print {
+            body {
+                opacity: 1;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="logo">Matt Anthony Photography</div>
+            <div class="brief-label">Project Brief</div>
+        </div>
+
+        <div class="hero">
+            <div class="overline">Custom Home<span>Squamish, BC</span></div>
+            <h1 class="project-title">The Perch Backhouse</h1>
+            <div class="meta">Summerhill Fine Homes<span>April 12-14, 2026</span></div>
+            <div class="hero-rule"></div>
+        </div>
+
+        <section class="section">
+            <div class="section-label">Project Overview</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Type</div>
+                    <div class="detail-value">Custom Home</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">5322 Backhouse Road, Squamish, BC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Square Footage</div>
+                    <div class="detail-value">3,200 sq ft</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Project Value</div>
+                    <div class="detail-value">$2.4M</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Completion Status</div>
+                    <div class="detail-value">Just Completed</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Shoot Dates</div>
+                    <div class="detail-value">April 12-14, 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Design Team</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Builder</div>
+                    <div class="detail-value">Summerhill Fine Homes</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Architect</div>
+                    <div class="detail-value">Keck Architecture</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Interior Designer</div>
+                    <div class="detail-value">Studio North Design (Sarah Chen)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Landscape Architect</div>
+                    <div class="detail-value">Ground Design</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Other Collaborators</div>
+                    <div class="detail-value">Refined Glazing (windows), Timco Fine Carpentry (millwork)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Design Intent</div>
+            <div class="prose">
+                <p>A modern mountain retreat that honours its natural setting through restrained material choices and intentional framing of the surrounding landscape. The design draws the eye outward through floor-to-ceiling glazing while maintaining warmth through natural wood soffits, board-formed concrete, and blackened steel accents.</p>
+                <p>The interior flow was designed to feel both open and intimate - generous living spaces that compress into quiet private retreats. Light is the defining material, with each room oriented to capture shifting conditions throughout the day.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Design Highlights</div>
+            <div class="tags">
+                <div class="tag">Views / Setting</div>
+                <div class="tag">Material Quality</div>
+                <div class="tag">Architectural Design</div>
+                <div class="tag">Craftsmanship</div>
+                <div class="tag">Outdoor Living</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Key Spaces</div>
+            <ul class="clean-list">
+                <li>Main living area with double-height ceiling and mountain views</li>
+                <li>Kitchen island - waterfall edge Calacatta marble</li>
+                <li>Primary suite with freestanding tub and valley panorama</li>
+                <li>Entry sequence - board-formed concrete feature wall</li>
+                <li>Covered outdoor living with fireplace</li>
+                <li>Custom steel and glass staircase</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Signature Materials</div>
+            <div class="prose">
+                <p>Board-formed concrete, white oak wide-plank flooring, blackened steel, Calacatta marble, natural cedar soffits, floor-to-ceiling Kolbe windows</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Shoot Logistics</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Staging</div>
+                    <div class="detail-value">Interior designer will style</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Occupancy</div>
+                    <div class="detail-value">Vacant - full access</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Orientation</div>
+                    <div class="detail-value">Front faces South</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Levels</div>
+                    <div class="detail-value">3 levels</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Access & Notes</div>
+            <div class="prose">
+                <p>Gate code will be provided morning-of. Parking available in the driveway - space for one vehicle.</p>
+                <p>Twilight shots of the south-facing exterior are the priority hero images.</p>
+            </div>
+            <div class="callout">
+                <p>Awards Being Targeted: CHBA National Awards, Western Living magazine feature</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">Contact</div>
+            <div class="contact">
+                <div class="contact-item">
+                    <div class="contact-label">Name</div>
+                    <div class="contact-value">Kyle Paisley</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Company</div>
+                    <div class="contact-value">Summerhill Fine Homes</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value"><a href="mailto:kyle@summerhillfinehomes.ca">kyle@summerhillfinehomes.ca</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value"><a href="tel:604-892-1234">604-892-1234</a></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="#" class="footer-logo">Matt Anthony Photography</a>
+            <div class="footer-location">Squamish, BC</div>
+        </footer>
+    </div>
+</body>
+</html>
