@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garibaldi Highlands Residence - Matt Anthony Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ef;
+            --ink: #1a1a18;
+            --muted: #6b6b69;
+            --subtle: #9a9a97;
+            --gold: #c9a96e;
+            --gold-dark: #a88a4e;
+            --gold-light: rgba(201,169,110,0.15);
+            --gold-border: rgba(201,169,110,0.25);
+            --rule: rgba(26,26,24,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            background: var(--gold-light);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .top-bar {
+            border-bottom: 1px solid var(--rule);
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .brief-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+
+        .hero {
+            padding: 48px 0;
+            border-top: 1px solid var(--rule);
+            text-align: center;
+        }
+
+        .overline {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .overline::before,
+        .overline::after {
+            content: '•';
+            margin: 0 8px;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .meta::before,
+        .meta::after {
+            content: '•';
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        .rule {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 48px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .section-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 48px;
+        }
+
+        .detail-item .label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 4px;
+        }
+
+        .detail-item .value {
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .prose {
+            font-size: 15px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .prose p + p {
+            margin-top: 16px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+            color: var(--gold-dark);
+            background: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 2px;
+        }
+
+        .list {
+            list-style: none;
+            max-width: 640px;
+        }
+
+        .list li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85em;
+            width: 6px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .callout {
+            border-left: 2px solid var(--gold);
+            background: var(--gold-light);
+            padding: 20px 24px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 24px;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            flex: 0 0 auto;
+        }
+
+        .contact-item .label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 4px;
+        }
+
+        .contact-item .value {
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .contact-item a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-border);
+        }
+
+        .contact-item a:hover {
+            color: var(--ink);
+        }
+
+        .footer {
+            padding: 48px 0 40px;
+            border-top: 1px solid var(--rule);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .footer-location {
+            font-size: 12px;
+            color: var(--subtle);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 36px 0;
+            }
+
+            .project-title {
+                font-size: 34px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+
+        @media print {
+            body {
+                opacity: 1;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="brand">Matt Anthony Photography</div>
+            <div class="brief-label">Project Brief</div>
+        </div>
+
+        <div class="hero">
+            <div class="overline">Custom Home Squamish, BC</div>
+            <h1 class="project-title">Garibaldi Highlands Residence</h1>
+            <div class="meta">Sitelines Architecture March 14, 2026</div>
+            <div class="rule"></div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Project Overview</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="label">Type</div>
+                    <div class="value">Custom Home</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Location</div>
+                    <div class="value">1847 Garibaldi Way, Squamish, BC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Square Footage</div>
+                    <div class="value">4,800 sq ft</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Project Value</div>
+                    <div class="value">$3.2M</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Completion Status</div>
+                    <div class="value">Just Completed</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Shoot Dates</div>
+                    <div class="value">April 20-22, 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Team</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="label">Architect</div>
+                    <div class="value">Sitelines Architecture</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Builder</div>
+                    <div class="value">Koze Design & Build</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Interior Designer</div>
+                    <div class="value">Gnar Interior Design</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Landscape Architect</div>
+                    <div class="value">Wild Edge Landscapes</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Other Collaborators</div>
+                    <div class="value">Innotech Windows & Doors, Custom Flooring Centre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Intent</div>
+            <div class="prose">
+                <p>A west coast modern residence designed to frame the dramatic views of the Garibaldi Range while creating a sense of shelter and grounding. The home steps down the hillside in three volumes connected by a central spine, with each level opening to the landscape through generous glazing and covered outdoor rooms.</p>
+                <p>The material palette draws from the surrounding forest — heavy timber structure, natural stone cladding, and weathering steel that will patina over time. The interiors maintain the same honest materiality with exposed Douglas fir beams, polished concrete floors, and custom walnut millwork throughout.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Highlights</div>
+            <div class="tags">
+                <div class="tag">Views / Setting</div>
+                <div class="tag">Architectural Design</div>
+                <div class="tag">Material Quality</div>
+                <div class="tag">Outdoor Living</div>
+                <div class="tag">Sustainability</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Key Spaces</div>
+            <ul class="list">
+                <li>Great room with 18ft ceilings and full Garibaldi panorama</li>
+                <li>Chef's kitchen with live-edge walnut island</li>
+                <li>Primary suite with private deck and soaking tub</li>
+                <li>Lower level media room with mountain views</li>
+                <li>Covered outdoor kitchen and dining</li>
+                <li>Entry courtyard with water feature</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Signature Materials</div>
+            <div class="prose">
+                <p>Heavy timber Douglas fir, natural granite cladding, weathering Corten steel, polished concrete, live-edge walnut, Innotech triple-pane glazing</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Shoot Logistics</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="label">Staging</div>
+                    <div class="value">Interior designer will style</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Occupancy</div>
+                    <div class="value">Vacant — full access</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Orientation</div>
+                    <div class="value">Front faces West</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Levels</div>
+                    <div class="value">3 levels</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Access & Notes</div>
+            <div class="prose">
+                <p>Steep driveway — 4WD recommended if wet. Parking for two vehicles at upper level. Ring doorbell at entry gate.</p>
+                <p>On-Site Contact: Jordan Maddox — 604-555-0187</p>
+                <p>The Garibaldi Range views are the hero — golden hour looking west is critical. Drone coverage essential to show how the three volumes step down the hillside. The courtyard water feature needs to be running for the shoot.</p>
+            </div>
+            <div class="callout">
+                <div class="prose">
+                    <p><strong>Awards Being Targeted:</strong> AIBC Architecture Awards, Canadian Architect Awards of Excellence, Western Living Designer of the Year</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Contact</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="label">Name</div>
+                    <div class="value">Jordan Maddox</div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">Company</div>
+                    <div class="value">Sitelines Architecture</div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">Email</div>
+                    <div class="value"><a href="mailto:jordan@sitelinesarchitecture.com">jordan@sitelinesarchitecture.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">Phone</div>
+                    <div class="value"><a href="tel:604-555-0187">604-555-0187</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="#" class="footer-brand">Matt Anthony Photography</a>
+            <div class="footer-location">Squamish, British Columbia</div>
+        </div>
+    </div>
+</body>
+</html>
