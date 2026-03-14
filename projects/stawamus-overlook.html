@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stawamus Overlook — Project Brief</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ef;
+            --ink: #1a1a18;
+            --muted: #6b6b69;
+            --subtle: #9a9a97;
+            --gold: #c9a96e;
+            --gold-dark: #a88a4e;
+            --gold-light: rgba(201,169,110,0.12);
+            --gold-border: rgba(201,169,110,0.25);
+            --rule: rgba(26,26,24,0.07);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: var(--gold-light);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .brief-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0 64px;
+        }
+
+        .overline {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .meta::before {
+            content: "·";
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 56px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .section-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .design-story {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--ink);
+            max-width: 640px;
+        }
+
+        .design-story p + p {
+            margin-top: 20px;
+        }
+
+        .photography-approach {
+            font-size: 15px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .highlight-tag {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--gold-dark);
+            background: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 48px;
+        }
+
+        .team-member {
+            border-left: 2px solid var(--gold);
+            padding-left: 12px;
+        }
+
+        .role {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 3px;
+        }
+
+        .name {
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .spaces-list {
+            list-style: none;
+        }
+
+        .spaces-list li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 15px;
+            line-height: 2.0;
+        }
+
+        .spaces-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .materials {
+            font-size: 15px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .detail-item {
+            margin-bottom: 16px;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .parking-notes {
+            margin-top: 24px;
+            font-size: 15px;
+            line-height: 1.75;
+            max-width: 640px;
+        }
+
+        .callout {
+            border-left: 2px solid var(--gold);
+            padding: 20px 28px;
+            background: var(--gold-light);
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            min-width: 160px;
+        }
+
+        .contact-link {
+            color: var(--gold-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-border);
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--ink);
+        }
+
+        .next-steps {
+            font-size: 14px;
+            color: var(--muted);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-top: 1px solid var(--rule);
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-location {
+            font-size: 12px;
+            color: var(--subtle);
+            margin-bottom: 6px;
+        }
+
+        .footer-contact {
+            font-size: 11px;
+        }
+
+        .footer-contact a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .hero {
+                padding: 60px 0 48px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .design-story {
+                font-size: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+
+        @media print {
+            body {
+                opacity: 1;
+                background: white;
+            }
+
+            .contact-link {
+                color: var(--ink);
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="top-bar">
+            <a href="https://mattanthonyphoto.com" class="brand">Matt Anthony Photography</a>
+            <div class="brief-label">Project Brief</div>
+        </header>
+
+        <div class="hero">
+            <div class="overline">Custom Home · Squamish, BC</div>
+            <h1>Stawamus Overlook</h1>
+            <div class="meta">Sitelines Architecture<span>March 14, 2026</span></div>
+            <div class="hero-rule"></div>
+        </div>
+
+        <section>
+            <div class="section-label">Design Intent</div>
+            <div class="design-story">
+                <p>A home that exists in conversation with the Chief. The entire design orbits around a single uninterrupted sightline from the entry threshold through the central living volume to the granite face of the Stawamus Chief. Every material, every proportion, every threshold was calibrated to frame and amplify that relationship.</p>
+                <p>The plan is organized as two offset bars connected by a glass bridge — the public volume (living, kitchen, dining) faces the Chief, while the private wing (bedrooms, studio) is rotated 12 degrees to capture morning light from the east. The bridge between them becomes a pause point: a moment of compression and transparency before the main volume opens up.</p>
+                <p>Materiality is deliberately restrained. Board-formed concrete anchors the home to its site, blackened steel frames create a precise graphic edge, and white oak wraps the interior volume in warmth. The Chief is the hero material — everything else defers to it.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Photography Approach</div>
+            <div class="photography-approach">
+                <p>This shoot will orchestrate around the uninterrupted Chief sightline, with golden hour coverage of the west-facing elevation as the hero sequence — this is the awards-winning image. The two-bar plan geometry requires drone coverage to show how the offset volumes engage the topography, while the glass bridge becomes a critical interior moment: capturing both the compression-to-release experience and the external view of the gap between volumes.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">What Stands Out</div>
+            <div class="highlights">
+                <span class="highlight-tag">Views / Setting</span>
+                <span class="highlight-tag">Architectural Design</span>
+                <span class="highlight-tag">Material Quality</span>
+                <span class="highlight-tag">Craftsmanship</span>
+                <span class="highlight-tag">Innovation / Technology</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Design Team</div>
+            <div class="grid">
+                <div class="team-member">
+                    <div class="role">Architect</div>
+                    <div class="name">Sitelines Architecture</div>
+                </div>
+                <div class="team-member">
+                    <div class="role">Builder / General Contractor</div>
+                    <div class="name">Koze Design & Build</div>
+                </div>
+                <div class="team-member">
+                    <div class="role">Interior Designer</div>
+                    <div class="name">Gnar Interior Design (Tanya Ross)</div>
+                </div>
+                <div class="team-member">
+                    <div class="role">Landscape Architect</div>
+                    <div class="name">Wild Edge Landscapes</div>
+                </div>
+                <div class="team-member">
+                    <div class="role">Other Collaborators</div>
+                    <div class="name">Innotech Windows & Doors (glazing systems), Raumwerk Millwork (custom cabinetry), Cascade Stone (interior stone fabrication)</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Key Spaces</div>
+            <ul class="spaces-list">
+                <li>Entry threshold framing the Chief through the full-height glazing wall</li>
+                <li>Central living volume — double-height, 24ft ceiling, unbroken Chief panorama</li>
+                <li>Kitchen with waterfall-edge Nero Marquina marble island</li>
+                <li>Glass bridge connecting public and private wings</li>
+                <li>Primary suite with cantilevered balcony over the forest canopy</li>
+                <li>Studio/office in the private wing with north-facing clerestory</li>
+                <li>Covered outdoor room with concrete fireplace and Chief views</li>
+                <li>Lower level wine room with rammed earth walls</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="section-label">Materials & Details</div>
+            <div class="materials">
+                <p>Board-formed concrete (reveals aligned to 3-inch module), blackened hot-rolled steel frames, white oak wide-plank flooring and ceiling panels, Nero Marquina marble, floor-to-ceiling Innotech triple-pane glazing, rammed earth feature walls, natural zinc standing seam roof, hand-rubbed bronze hardware throughout</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Project Overview</div>
+            <div class="grid">
+                <div class="detail-item">
+                    <div class="detail-label">Project Type</div>
+                    <div class="detail-value">Custom Home</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">2740 Stawamus Road, Squamish, BC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Square Footage</div>
+                    <div class="detail-value">4,200 sq ft</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Estimated Value</div>
+                    <div class="detail-value">$3.6M</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Completion Status</div>
+                    <div class="detail-value">Just Completed</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred Shoot Dates</div>
+                    <div class="detail-value">May 15-17, 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Logistics</div>
+            <div class="grid">
+                <div class="detail-item">
+                    <div class="detail-label">Staging</div>
+                    <div class="detail-value">Interior designer will style</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Occupancy</div>
+                    <div class="detail-value">Vacant — full access</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Exterior Orientation</div>
+                    <div class="detail-value">Front faces West</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Levels</div>
+                    <div class="detail-value">3 levels</div>
+                </div>
+            </div>
+            <div class="parking-notes">
+                <p>Steep switchback driveway — 4WD required if wet. Parking pad at the upper level fits two vehicles. Do not park on the grass — irrigation system below. Ring video doorbell at main entry gate.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Notes & Awards</div>
+            <div class="callout">
+                <p><strong>Awards Being Targeted:</strong> AIBC Architecture Awards, Canadian Architect Awards of Excellence, Western Living Designer of the Year, Wood WORKS! BC Wood Design Awards, CHBA National Awards</p>
+                <br>
+                <p>The Chief is the entire shoot. Golden hour light on the west-facing elevation with the Chief behind is the hero sequence — this is the image that wins awards. Drone coverage is essential to show the two-bar plan and how it engages the topography. The glass bridge should be shot from both inside (compression to release) and externally (showing the gap between volumes). Morning mist is common in the valley below the house — would be spectacular for early morning exterior context shots if we can time it.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Client Contact</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="detail-label">Name</div>
+                    <div class="detail-value">Jordan Maddox</div>
+                </div>
+                <div class="contact-item">
+                    <div class="detail-label">Company</div>
+                    <div class="detail-value">Sitelines Architecture</div>
+                </div>
+                <div class="contact-item">
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value"><a href="mailto:jordan@sitelinesarchitecture.com" class="contact-link">jordan@sitelinesarchitecture.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="detail-label">Phone</div>
+                    <div class="detail-value"><a href="tel:604-555-0187" class="contact-link">604-555-0187</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">What Happens Next</div>
+            <div class="next-steps">
+                <p>I'll review this brief and follow up within 48 hours with a proposed shoot schedule, shot list, and any clarifying questions. If you need to update any details, reply to the email notification or contact me directly.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="https://mattanthonyphoto.com" class="footer-brand">Matt Anthony Photography</a>
+            <div class="footer-location">Squamish, British Columbia</div>
+            <div class="footer-contact">604.765.9270 · <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></div>
+        </footer>
+    </div>
+</body>
+</html>
