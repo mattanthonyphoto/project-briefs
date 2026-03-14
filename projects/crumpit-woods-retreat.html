@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumpit Woods Retreat - Matt Anthony Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f3ef;
+            --ink: #1a1a18;
+            --muted: #6b6b69;
+            --subtle: #9a9a97;
+            --gold: #c9a96e;
+            --gold-dark: #a88a4e;
+            --gold-light: rgba(201,169,110,0.15);
+            --gold-border: rgba(201,169,110,0.25);
+            --rule: rgba(26,26,24,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        ::selection {
+            background-color: var(--gold-light);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .project-brief-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 48px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .overline {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .meta-line {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .gold-dot {
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        .gold-rule {
+            width: 48px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 48px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--subtle);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .prose {
+            max-width: 640px;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .prose p + p {
+            margin-top: 16px;
+        }
+
+        .highlight-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--gold-dark);
+            background-color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 2px;
+        }
+
+        .clean-list {
+            list-style: none;
+            max-width: 640px;
+        }
+
+        .clean-list li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .clean-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75em;
+            width: 6px;
+            height: 1px;
+            background-color: var(--gold);
+        }
+
+        .callout {
+            border-left: 2px solid var(--gold);
+            padding: 20px 24px;
+            background-color: var(--gold-light);
+            border-radius: 0 4px 4px 0;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .contact {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .contact a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-border);
+        }
+
+        .contact a:hover {
+            color: var(--ink);
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-top: 1px solid var(--rule);
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-location {
+            font-size: 12px;
+            color: var(--subtle);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 36px 0;
+            }
+
+            .project-title {
+                font-size: 34px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact {
+                gap: 24px;
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                opacity: 1;
+                animation: none;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="brand">Matt Anthony Photography</div>
+            <div class="project-brief-label">Project Brief</div>
+        </div>
+
+        <div class="hero">
+            <div class="overline">Custom Home · Squamish, BC</div>
+            <h1 class="project-title">Crumpit Woods Retreat</h1>
+            <div class="meta-line">Summerhill Fine Homes<span class="gold-dot">·</span>March 14, 2026</div>
+            <div class="gold-rule"></div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Project Overview</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Type</div>
+                    <div class="detail-value">Custom Home</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">1455 Crumpit Woods Drive, Squamish, BC</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Square Footage</div>
+                    <div class="detail-value">2,800 sq ft</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Project Value</div>
+                    <div class="detail-value">$1.9M</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Completion Status</div>
+                    <div class="detail-value">Just Completed</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Shoot Dates</div>
+                    <div class="detail-value">May 10-11, 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Team</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Builder</div>
+                    <div class="detail-value">Summerhill Fine Homes</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Architect</div>
+                    <div class="detail-value">Measured Architecture</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Interior Designer</div>
+                    <div class="detail-value">Britt Lothrop Interior Design</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Other Collaborators</div>
+                    <div class="detail-value">Kolbe Windows, Custom Flooring Centre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Intent</div>
+            <div class="prose">
+                <p>A compact forest dwelling that disappears into the old-growth canopy of Crumpit Woods. The home is organized around a central double-height living volume with a glass gable end that frames a single ancient Douglas fir. Every design decision defers to the forest — the material palette is deliberately muted, letting the green light filtering through the canopy become the dominant interior finish.</p>
+                <p>The plan steps back from the trees rather than clearing them, resulting in an irregular footprint that wraps around three mature cedars. Covered walkways connect the main volume to a detached studio, creating a sense of moving through the forest to reach different parts of the home.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Design Highlights</div>
+            <div class="highlight-tags">
+                <span class="tag">Views / Setting</span>
+                <span class="tag">Architectural Design</span>
+                <span class="tag">Material Quality</span>
+                <span class="tag">Sustainability</span>
+                <span class="tag">Craftsmanship</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Key Spaces</div>
+            <ul class="clean-list">
+                <li>Central living volume with glass gable framing the Douglas fir</li>
+                <li>Kitchen with live-edge cedar counter and forest views</li>
+                <li>Primary loft overlooking the living volume</li>
+                <li>Covered breezeway connecting to detached studio</li>
+                <li>Studio workspace with north-facing clerestory</li>
+                <li>Outdoor shower tucked between cedars</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Signature Materials</div>
+            <div class="prose">
+                <p>Charred cedar siding (shou sugi ban), exposed glulam beams, raw concrete floors with radiant heat, blackened steel window frames, live-edge cedar countertops, standing seam copper roof that will patina green</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Shoot Logistics</div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Staging</div>
+                    <div class="detail-value">Furnished / lived in</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Occupancy</div>
+                    <div class="detail-value">Owner will be present</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Orientation</div>
+                    <div class="detail-value">Front faces West</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Levels</div>
+                    <div class="detail-value">2 levels</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Access & Notes</div>
+            <div class="prose">
+                <p>Narrow gravel road — sedan clearance is fine but tight. Park at the pullout 50m before the house, walk in on the boardwalk path. No turnaround at the house itself.</p>
+            </div>
+            <div style="margin-top: 24px;">
+                <div class="callout">
+                    <strong>Awards Target:</strong> CHBA Georgie Awards, Canadian Architect Awards of Excellence, Wood WORKS! BC Wood Design Awards
+                </div>
+            </div>
+            <div style="margin-top: 24px;">
+                <div class="prose">
+                    <p>The charred cedar siding is the hero material — needs to be shot in both direct light and overcast to show the depth of the char texture. The copper roof is still bright — would be good to document it now before it patinas. Morning mist through the trees is common and would make incredible atmosphere shots if we time it right.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">Contact</div>
+            <div class="contact">
+                <div class="detail-item">
+                    <div class="detail-label">Name</div>
+                    <div class="detail-value">Kyle Paisley</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Company</div>
+                    <div class="detail-value">Summerhill Fine Homes</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value"><a href="mailto:kyle@summerhillfinehomes.ca">kyle@summerhillfinehomes.ca</a></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Phone</div>
+                    <div class="detail-value"><a href="tel:604-898-7654">604-898-7654</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="#" class="footer-brand">Matt Anthony Photography</a>
+            <div class="footer-location">Squamish, BC</div>
+        </div>
+    </div>
+</body>
+</html>
